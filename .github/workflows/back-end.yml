@@ -1,15 +1,15 @@
 name: Deploy to EC2 Shoes_store_app_be
 
 on:
-  push: 
+  push:
     branches:
       - main
     paths:
-      - 'shoes_store_app_be/**'
+      - "shoes_store_app_be/**"
 
 env:
-  JAR_FILE_NAME: 'group06-0.0.1-SNAPSHOT.jar'
-  TARGET_PATH: 'shoes_store_app_be'
+  JAR_FILE_NAME: "group06-0.0.1-SNAPSHOT.jar"
+  TARGET_PATH: "shoes_store_app_be"
   EC2_HOST: ${{ secrets.EC2_HOST }}
   EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
   EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
@@ -25,8 +25,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '17'
-          distribution: 'adopt'
+          java-version: "17"
+          distribution: "adopt"
 
       - name: Build JAR
         run: cd ${{env.TARGET_PATH}} && mvn package -DskipTests
@@ -37,12 +37,12 @@ jobs:
           host: ${{env.EC2_HOST}}
           username: ${{env.EC2_USERNAME}}
           key: ${{env.EC2_PRIVATE_KEY}}
-          source: '${{env.TARGET_PATH}}/target/${{env.JAR_FILE_NAME}}'
-          target: '${{env.TARGET_PATH}}'
+          source: "${{env.TARGET_PATH}}/target/${{env.JAR_FILE_NAME}}"
+          target: "${{env.TARGET_PATH}}"
 
       - name: Deploying
         uses: appleboy/scp-action@master
-        with: 
+        with:
           host: ${{env.EC2_HOST}}
           username: ${{env.EC2_USERNAME}}
           key: ${{env.EC2_PRIVATE_KEY}}
@@ -55,5 +55,3 @@ jobs:
 
             cd ${{env.TARGET_PATH}}/${{env.TARGET_PATH}}/target
             tmux new-session -d -s deployment 'java -jar ${{env.JAR_FILE_NAME}}'
-          
-        
