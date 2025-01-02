@@ -31,10 +31,6 @@ jobs:
       - name: Build JAR
         run: cd ${{env.TARGET_PATH}} && mvn package -DskipTests
 
-      - name: Rename JAR
-        run: |
-          mv ${{env.TARGET_PATH}}/target/group06-0.0.1-SNAPSHOT.jar ${{env.TARGET_PATH}}/target/${{env.JAR_FILE_NAME}}
-
       - name: Copy JAR to EC2
         uses: appleboy/scp-action@master
         with:
