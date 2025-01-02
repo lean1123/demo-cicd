@@ -41,7 +41,7 @@ jobs:
           target: "${{env.TARGET_PATH}}"
 
       - name: Deploying
-        uses: appleboy/scp-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{env.EC2_HOST}}
           username: ${{env.EC2_USERNAME}}
@@ -52,6 +52,5 @@ jobs:
                 tmux kill-session -t deployment
               fi
             }
-
             cd ${{env.TARGET_PATH}}/${{env.TARGET_PATH}}/target
             tmux new-session -d -s deployment 'java -jar ${{env.JAR_FILE_NAME}}'
