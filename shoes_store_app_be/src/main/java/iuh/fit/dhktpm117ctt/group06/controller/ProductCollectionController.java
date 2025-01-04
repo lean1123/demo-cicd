@@ -20,7 +20,7 @@ public class ProductCollectionController {
 
     @PostMapping()
     public ResponseEntity<?> save(@Valid @RequestBody ProductCollectionRequest request) {
-        return ResponseEntity.ok(productCollectionService.save(request));
+        return ResponseEntity.ok(productCollectionService.save(request).get());
     }
 
     @PutMapping("/{id}")
