@@ -2,7 +2,7 @@ import axios from 'axios';
 import AuthAPI from './authApi';
 
 const AdminAxiosClient = axios.create({
-	baseURL: 'http://18.181.186.230:8080/api',
+	baseURL: 'api',
 	// baseURL: 'http://localhost:8080/api',
 	headers: {
 		'Content-Type': 'application/json',
