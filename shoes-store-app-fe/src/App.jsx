@@ -56,6 +56,8 @@ function App() {
 							<Route path='returnPolicy' element={<ReturnPolicy />} />
 						</Route>
 					</Route>
+					{/* <Route path='/products/:id' element={<ProductDetail />}/> */}
+						
 					<Route path='order/:orderId' element={<OrderDetails />} />
 					{(role === 'admin' || role === 'customer') && (
 						<Route path='pay' element={<Pay />} />
