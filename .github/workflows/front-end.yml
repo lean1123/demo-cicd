@@ -39,7 +39,7 @@ jobs:
           username: ${{env.SSH_USERNAME}}
           key: ${{env.SSH_PRIVATE_KEY}}
           source: "${{env.TARGET_PATH}}/dist/**"
-          target: /var/www/lean1123/html
+          target: /var/www/lean1123.online/html
 
       - name: Restart Nginx
         uses: appleboy/ssh-action@master
