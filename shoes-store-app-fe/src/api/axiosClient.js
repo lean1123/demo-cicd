@@ -3,7 +3,7 @@ import AuthAPI from './authApi';
 
 const AdminAxiosClient = axios.create({
 	// baseURL: 'api',
-	baseURL: 'http://localhost:8080/api',
+	baseURL: 'https://lean1123.online/api',
 	headers: {
 		'Content-Type': 'application/json',
 	},
