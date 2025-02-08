@@ -2,7 +2,7 @@ import axios from 'axios';
 import AuthAPI from './authApi';
 
 const AdminAxiosClient = axios.create({
-	// baseURL: 'api',
+	// baseURL: 'deployed API url',
 	baseURL: 'https://lean1123.online/api',
 	headers: {
 		'Content-Type': 'application/json',
