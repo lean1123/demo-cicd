@@ -81,7 +81,8 @@ public class SecurityConfig {
                                 "http://localhost:5173",
                                 "http://localhost:8080",
                                 "http://localhost:8081",
-                                "http://54.250.202.79:8080"
+                                "http://54.250.202.79:8080",
+                                "https://lean1123.online"
                         ));
                         cfg.setAllowedMethods(Collections.singletonList("*"));
                         cfg.setAllowCredentials(true);
